@@ -1,0 +1,30 @@
+
+
+import React from 'react'
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { fadeInOut } from '../animations';
+const LogignInput = ({ placeHolder, icon, inputState, inputStateFunc, type, isSignUp }) => {
+ 
+    const [ isFocus, setIsFocus ] = useState(false);
+ 
+    return (
+    <motion.div 
+        {...fadeInOut}
+        className={`flex items-center justify-center grap-4 bg-cardOverlay backdrop-blur-md rounded-md w-full px-4 py-2 mb-4
+        ${isFocus ? ' shadow-md shadow-red-400 ' : 'shadow-none'}`}>
+        { icon }
+        <input  
+            type={type}
+            placeholder={ placeHolder }
+            className='w-full h-full bg-transparent text-headingColor text-sm pl-2  font-semibold border-none outline-none'
+            value={inputState}
+            onChange={(e)=> inputStateFunc(e.target.value) }
+            onFocus={()=> setIsFocus(true)}
+            onBlur={()=> setIsFocus(false)}
+        />
+    </motion.div>
+  )
+}
+
+export default LogignInput
