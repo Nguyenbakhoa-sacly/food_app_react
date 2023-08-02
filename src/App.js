@@ -41,6 +41,7 @@ function App() {
           className='fixed z-50 inset-0 bg-cardOverlay backdrop-blur-md flex items-center justify-center w-full '
         >
           <Loader />
+
         </motion.div>
       )}
       <Routes>
